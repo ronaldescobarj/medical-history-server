@@ -6,7 +6,7 @@ function prepareResponse(req) {
     var response = {
         success: false,
         response: {},
-        message: ""
+        message: "-"
     };
     return response;
 }
