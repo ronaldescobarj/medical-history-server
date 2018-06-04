@@ -39,11 +39,11 @@ function generateQuery(data, type) {
     var query = "";
     if (type == "insert")
         query = "INSERT INTO medical_history.self_observation VALUES (" + data.id + ", '" +
-            (data.summary ? data.summary : "-") + "', '" + data.observation + "', '" + data.date +
+            (data.summary ? data.summary : "") + "', '" + data.observation + "', '" + data.date +
             "', " + data.user_id + ");";
     if (type == "update")
         query = "UPDATE medical_history.self_observation SET summary='" +
-            (data.summary ? data.summary : "-") + "', observation='" + data.observation + "', date='" +
+            (data.summary ? data.summary : "") + "', observation='" + data.observation + "', date='" +
             data.date + "' WHERE id=" + data.id;
     return query;
 }

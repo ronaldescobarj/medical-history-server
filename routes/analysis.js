@@ -39,15 +39,15 @@ function generateQuery(data, type) {
     var query = "";
     if (type == "insert")
         query = "INSERT INTO medical_history.analysis VALUES (" + data.id + ", '" +
-            (data.summary ? data.summary : "-") + "', '" + data.type + "', '" +
-            (data.description ? data.description : "-") + "', '" + (data.hospital ? data.hospital : "-")
-            + "', '" + (data.commentary ? data.commentary : "-") + "', '" + data.date + "', "
+            (data.summary ? data.summary : "") + "', '" + data.type + "', '" +
+            (data.description ? data.description : "") + "', '" + (data.hospital ? data.hospital : "")
+            + "', '" + (data.commentary ? data.commentary : "") + "', '" + data.date + "', "
             + data.user_id + ");";
     if (type == "update")
-        query = "UPDATE medical_history.analysis SET summary='" + (data.summary ? data.summary : "-")
-            + "', type='" + data.type + "', description='" + (data.description ? data.description : "-")
-            + "', hospital='" + (data.hospital ? data.hospital : "-") + "', commentary='" +
-            (data.commentary ? data.commentary : "-") + "', date='" + data.date + "' WHERE id=" + data.id;
+        query = "UPDATE medical_history.analysis SET summary='" + (data.summary ? data.summary : "")
+            + "', type='" + data.type + "', description='" + (data.description ? data.description : "")
+            + "', hospital='" + (data.hospital ? data.hospital : "") + "', commentary='" +
+            (data.commentary ? data.commentary : "") + "', date='" + data.date + "' WHERE id=" + data.id;
     return query;
 }
 
