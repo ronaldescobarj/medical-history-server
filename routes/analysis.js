@@ -5,7 +5,8 @@ var dbConnection = require("../lib/dbConnection");
 function prepareResponse(req) {
     var response = {
         success: false,
-        response: {}
+        response: {},
+        message: ""
     };
     return response;
 }
