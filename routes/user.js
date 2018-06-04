@@ -66,14 +66,14 @@ function generateQuery(data, type) {
     var query = "";
     if (type == "insert")
         query = "INSERT INTO medical_history.user VALUES (" + data.id + ", '" + data.name +
-            "', '" + data.last_name + "', " + data.account_id + ", '" + data.diseases
-            + "', '" + data.allergies + "', " + data.default_user + ", '" + data.birthdate + "');";
+            "', '" + data.last_name + "', " + data.account_id + ", '" +
+            (data.diseases ? data.diseases : "-") + "', '" + (data.allergies ? data.allergies : "-")
+            + "', " + data.default_user + ", '" + data.birthdate + "');";
     if (type == "update")
         query = "UPDATE medical_history.user SET name='" + data.name + "', last_name='" +
-            data.last_name + "', diseases='" + data.diseases + "', allergies='" +
-            data.allergies + "', default_user=" + data.default_user + ", birthdate='" + data.birthdate
-            + "' WHERE id=" + data.id;
-    console.log(query);
+            data.last_name + "', diseases='" + (data.diseases ? data.diseases : "-")
+            + "', allergies='" + (data.allergies ? data.allergies : "-") + "', default_user="
+            + data.default_user + ", birthdate='" + data.birthdate + "' WHERE id=" + data.id;
     return query;
 }
 
