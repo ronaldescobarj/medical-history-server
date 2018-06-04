@@ -169,11 +169,13 @@ router.post('/delete', function (req, res, next) {
     dbConnection.pool.connect(function (error, connection, done) {
         if (error) {
             console.error("error");
+            response.message = "dbconnection error: " + error;
             res.send(JSON.stringify(response));
         } else {
             var query = connection.query(queryString, function (err, resultObj) {
                 done();
                 if (err) {
+                    response.message = "query error: " + JSON.stringify(err);
                     console.error(JSON.stringify(err));
                 } else {
                     response.success = true;
