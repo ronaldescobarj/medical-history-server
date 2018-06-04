@@ -27,7 +27,7 @@ router.get('/list', function (req, res) {
             console.error("error");
             res.json(response);
         } else {
-            var queryConsultations = 'SELECT id, summary, date FROM medical_history.consultation where user_id=' + userId;
+            var queryConsultations = 'SELECT id, summary, date, hospital FROM medical_history.consultation where user_id=' + userId;
             var queryCons = connection.query(queryConsultations, function (err, resultObjCons) {
                 if (err) {
                     console.error(JSON.stringify(err));
@@ -35,7 +35,7 @@ router.get('/list', function (req, res) {
                 } else {
                     registers = resultObjCons.rows;
                     registers = addType(registers, "Consulta");
-                    var queryAnalysis = 'SELECT id, summary, date FROM medical_history.analysis where user_id=' + userId;
+                    var queryAnalysis = 'SELECT id, summary, date, hospital FROM medical_history.analysis where user_id=' + userId;
                     var queryAn = connection.query(queryAnalysis, function (err, resultObjAn) {
                         if (err) {
                             console.error(JSON.stringify(err));
